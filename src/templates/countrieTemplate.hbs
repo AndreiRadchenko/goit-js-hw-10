@@ -1,0 +1,24 @@
+<h2 class='country-info__title'>
+  <spin class='country-info__flag'>{{flag}}</spin>
+  {{name.common}}
+</h2>
+<ul class='country-info__description'>
+  <li class='country-info__datum'>
+    <p class='datum-value'>
+      <spin class='datum-title'>Capital:</spin>
+      {{capital}}
+    </p>
+  </li>
+  <li class='country-info__datum'>
+    <p class='datum-value'>
+      <spin class='datum-title'>Population:</spin>
+      {{population}}
+    </p>
+  </li>
+  <li class='country-info__datum'>
+    <p class='datum-value'>
+      <spin class='datum-title'>Languages: </spin>
+      {{#each languages}}{{this}}, {{/each}}
+    </p>
+  </li>
+</ul>
