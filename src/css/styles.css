@@ -47,3 +47,14 @@ body {
 .country-info__flag {
   margin-right: 10px;
 }
+
+.country-item {
+  color: inherit;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.country-item:hover,
+.country-item:focus {
+  color: #2196f3;
+  cursor: pointer;
+}

@@ -7,12 +7,14 @@ const debounce = require('lodash.debounce');
 
 const DEBOUNCE_DELAY = 300;
 const NOTIFY_TIMEOUT = 2000; //ms
+const FLAG_OFFSET = 34;
 
 inputRef = document.querySelector('#search-box');
 countriesListRef = document.querySelector('.country-list');
 countrieInfoRef = document.querySelector('.country-info');
 
 inputRef.addEventListener('input', debounce(onTextInput, DEBOUNCE_DELAY));
+countriesListRef.addEventListener('click', onCountriesListClick);
 
 function onTextInput({ target: { value } }) {
   value = value.trim();
@@ -21,6 +23,11 @@ function onTextInput({ target: { value } }) {
     return;
   }
   fetchCountries(value).then(drawCountries).catch(onResponseError);
+}
+
+function onCountriesListClick(event) {
+  inputRef.value = event.target.textContent.slice(FLAG_OFFSET);
+  inputRef.dispatchEvent(new Event('input'));
 }
 
 function drawCountries(countriesList) {
