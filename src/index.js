@@ -9,9 +9,9 @@ const DEBOUNCE_DELAY = 300;
 const NOTIFY_TIMEOUT = 2000; //ms
 const FLAG_OFFSET = 34;
 
-inputRef = document.querySelector('#search-box');
-countriesListRef = document.querySelector('.country-list');
-countrieInfoRef = document.querySelector('.country-info');
+const inputRef = document.querySelector('#search-box');
+const countriesListRef = document.querySelector('.country-list');
+const countrieInfoRef = document.querySelector('.country-info');
 
 inputRef.addEventListener('input', debounce(onTextInput, DEBOUNCE_DELAY));
 countriesListRef.addEventListener('click', onCountriesListClick);
