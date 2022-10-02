@@ -16,15 +16,14 @@ inputRef.addEventListener('input', debounce(onTextInput, DEBOUNCE_DELAY));
 
 function onTextInput({ target: { value } }) {
   value = value.trim();
+  clearCountriesHTML();
   if (value === '') {
-    clearCountriesHTML();
     return;
   }
   fetchCountries(value).then(drawCountries).catch(onResponseError);
 }
 
 function drawCountries(countriesList) {
-  clearCountriesHTML();
   if (countriesList.length > 10) {
     Notify.info(`Too many matches found. Please enter a more specific name`, {
       timeout: NOTIFY_TIMEOUT,
@@ -43,7 +42,6 @@ function drawCountries(countriesList) {
 }
 
 function onResponseError(error) {
-  clearCountriesHTML();
   if (error.message === '404') {
     Notify.failure(`Oops, there is no country with that name`, {
       timeout: NOTIFY_TIMEOUT,

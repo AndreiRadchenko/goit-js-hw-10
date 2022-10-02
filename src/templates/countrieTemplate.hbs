@@ -1,6 +1,6 @@
 <h2 class='country-info__title'>
   <spin class='country-info__flag'>{{flag}}</spin>
-  {{name.common}}
+  {{name.official}}
 </h2>
 <ul class='country-info__description'>
   <li class='country-info__datum'>
@@ -18,7 +18,13 @@
   <li class='country-info__datum'>
     <p class='datum-value'>
       <spin class='datum-title'>Languages: </spin>
-      {{#each languages}}{{this}}, {{/each}}
+      {{#each languages}}
+        {{#if @last}}
+          {{this}}
+        {{else}}
+          {{this}},
+        {{/if}}
+      {{/each}}
     </p>
   </li>
 </ul>
