@@ -3,7 +3,8 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { fetchCountries } from './js/fetchCountries';
 import countriesListTemplate from './templates/countriesListTemplate.hbs';
 import countrieTemplate from './templates/countrieTemplate.hbs';
-const debounce = require('lodash.debounce');
+import debounce from 'lodash.debounce';
+// const debounce = require('lodash.debounce');
 
 const DEBOUNCE_DELAY = 300;
 const NOTIFY_TIMEOUT = 2000; //ms
